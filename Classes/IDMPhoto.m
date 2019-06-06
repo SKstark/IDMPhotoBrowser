@@ -8,6 +8,7 @@
 
 #import "IDMPhoto.h"
 #import "IDMPhotoBrowser.h"
+#import <SDWebImage/SDWebImageManager.h>
 
 // Private
 @interface IDMPhoto () {
@@ -136,7 +137,6 @@ caption = _caption;
             [self performSelectorInBackground:@selector(loadImageFromFileAsync) withObject:nil];
         } else if (_photoURL) {
             // Load async from web (using SDWebImageManager)
-			
 			[[SDWebImageManager sharedManager] loadImageWithURL:_photoURL options:SDWebImageRetryFailed progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
 				CGFloat progress = ((CGFloat)receivedSize)/((CGFloat)expectedSize);
 				

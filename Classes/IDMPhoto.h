@@ -6,9 +6,8 @@
 //  Copyright 2010 d3i. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "IDMPhotoProtocol.h"
-#import <SDWebImage/SDWebImageManager.h>
+#import <Foundation/Foundation.h>
 
 // This class models a photo/image and it's caption
 // If you want to handle photos, caching, decompression
