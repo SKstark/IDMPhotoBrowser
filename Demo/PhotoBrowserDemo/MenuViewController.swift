@@ -39,7 +39,11 @@ extension MenuViewController {
 		buttonWithImageOnScreen1.setImage(UIImage.init(named: "photo1m.jpg"), for: .normal)
 		buttonWithImageOnScreen1.imageView?.contentMode = .scaleAspectFill
 		buttonWithImageOnScreen1.backgroundColor = UIColor.black
-		buttonWithImageOnScreen1.addTarget(self, action: #selector(buttonWithImageOnScreenPressed(sender:)), for: .touchUpInside)
+		buttonWithImageOnScreen1.addTarget(
+            self,
+            action: #selector(buttonWithImageOnScreenPressed(sender:)),
+            for: .touchUpInside
+        )
 		tableViewFooter.addSubview(buttonWithImageOnScreen1)
 		
 		let buttonWithImageOnScreen2 = UIButton(type: .custom)
@@ -59,7 +63,7 @@ extension MenuViewController {
 // MARK: Actions
 
 extension MenuViewController {
-	func buttonWithImageOnScreenPressed(sender: AnyObject) {
+    @objc func buttonWithImageOnScreenPressed(sender: AnyObject) {
 		let buttonSender = sender as? UIButton
 		
 		// Create an array to store IDMPhoto objects
@@ -272,7 +276,7 @@ extension MenuViewController {
 	
 	func photoBrowser(_ photoBrowser: IDMPhotoBrowser!, didDismissActionSheetWithButtonIndex buttonIndex: UInt, photoIndex: UInt) {
 		let photo: IDMPhoto = photoBrowser.photo(at: buttonIndex) as! IDMPhoto
-		print("Did dismiss photoBrowser with photo index: \(buttonIndex), photo caption: \(photo.caption)")
+        print("Did dismiss photoBrowser with photo index: \(buttonIndex), photo caption: \(String(describing: photo.caption))")
 		
 		UIAlertView(title: "Option \(buttonIndex+1)", message: nil, delegate: nil, cancelButtonTitle: "OK").show()
 	}
